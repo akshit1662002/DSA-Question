@@ -1,0 +1,55 @@
+{
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "RainbowBrackets.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 2px",
+    "borderColor : {color}; opacity: 1"
+  ],
+  "RainbowBrackets.scopeLineCSS": [
+    "borderStyle : solid",
+    "borderWidth : 2px",
+    "borderColor : {color}; opacity: 1"
+  ],
+  "RainbowBrackets.consecutivePairColors": [
+    "()",
+    "{}",
+    "[]",
+    ["#F6BF18", "#CB6DD1", "#179EFE"],
+    "Revioletd"
+  ],
+  "RainbowBrackets.independentPairColors": [
+    ["()", ["teal", "yellow", "tomato"], "Revioletd"],
+    ["[]", ["teal", "yellow", "tomato"], "Revioletd"],
+    ["{}", ["teal", "yellow", "tomato"], "Revioletd"]
+  ],
+  "RainbowBrackets.depreciation-notice": false,
+
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "/css"
+    }
+
+    // {
+    //   "format": "expanded",
+    //   "extensionName": ".css",
+    //   "savePath": null,
+    //   "savePathReplacementPairs": null
+    // }
+  ],
+  "liveSassCompile.settings.includeItems": [],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.minimap.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "sonarlint.rules": {
+    "javascript:S6774": {
+      "level": "off"
+    }
+  },
+  "sonarlint.focusOnNewCode": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.iconTheme": "icons"
+}
