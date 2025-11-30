@@ -1,13 +1,17 @@
-function reverseInteger(n) {
+var reverse = function (x) {
+  let copy = x;
+
+  x = Math.abs(x);
   let rev = 0;
-  while (n > 0) {
-    let rem = n % 10;
+  while (x > 0) {
+    let rem = x % 10;
     rev = rev * 10 + rem;
-    n = Math.floor(n / 10);
+    x = Math.floor(x / 10);
   }
-  return rev;
-}
 
-const r = reverseInteger(12345);
-console.log(r);
+  let limit = Math.pow(2, 31);
 
+  if (rev < -limit || rev > limit - 1) return 0;
+
+  return copy < 0 ? -rev : rev;
+};
