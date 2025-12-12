@@ -4,10 +4,14 @@
 // 2- Recursive Case -> Part where the function call itself
 
 function fun(num) {
-  if (num === 0) return; // this is the base case , when you want to stop the recursion
+  if (num < 1) return; // this is the base case , when you want to stop the recursion
   console.log(num);
-  num = num - 1;
-  fun(num);
+  //you can write like this
+  // num = num - 1;
+  // fun(num);
+
+  //or you can write like this
+  fun(--num);
 }
 
 const num = 10;
