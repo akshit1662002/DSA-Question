@@ -1,15 +1,25 @@
-function Node(value) {
-  this.val = value;
+function Node(val) {
+  this.val = val;
   this.next = null;
 }
 
-var MyLinkedList = function () {};
+var MyLinkedList = function () {
+  this.head = null;
+  this.size = 0;
+};
 
 /**
  * @param {number} index
  * @return {number}
  */
-MyLinkedList.prototype.get = function (index) {};
+MyLinkedList.prototype.get = function (index) {
+  if (index < 0 || index >= this.size) return -1;
+  let current = this.head;
+  for (let i = 0; i < index; i++) {
+    current = current.next;
+  }
+  return current.val;
+};
 
 /**
  * @param {number} val
@@ -27,19 +37,6 @@ MyLinkedList.prototype.addAtHead = function (val) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtTail = function (val) {
-  //first we need to reached to the last node
-  //   let current = this.head;
-  //   while (current !== null) {
-  //     current = current.next;
-  //   }
-  //   //this loop will gave you last node
-  //   //now we add node to the last
-  //   // first we need to create a new node
-  //   let newNode = new Node(value);
-  //   current.next = newNode;
-
-  //we have a corner case when we have a empty list means head points to null
-
   let newNode = new Node(val);
   if (this.head == null) {
     this.head = newNode;
@@ -59,8 +56,9 @@ MyLinkedList.prototype.addAtTail = function (val) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtIndex = function (index, val) {
-  let newNode = new Node(val);
-  if (index == null) {
+  if (index < 0 || index > this.size) return;
+
+  if (index === 0) {
     this.addAtHead(val);
     return;
   } else if (index === this.size) {
@@ -68,9 +66,11 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
     return;
   } else {
     let current = this.head;
-    for (i = 0; i < index - 1; i++) {
+    let newNode = new Node(val);
+    for (let i = 0; i < index - 1; i++) {
       current = current.next;
     }
+    newNode.next = current.next;
     current.next = newNode;
   }
   this.size++;
@@ -80,7 +80,19 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
  * @param {number} index
  * @return {void}
  */
-MyLinkedList.prototype.deleteAtIndex = function (index) {};
+MyLinkedList.prototype.deleteAtIndex = function (index) {
+  if (index < 0 || index >= this.size) return;
+  if (index === 0) {
+    this.head = this.head.next;
+  } else {
+    let current = this.head;
+    for (let i = 0; i < index - 1; i++) {
+      current = current.next;
+    }
+    current.next = current.next.next;
+  }
+  this.size--;
+};
 
 /**
  * Your MyLinkedList object will be instantiated and called as such:
